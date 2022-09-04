@@ -1,0 +1,7 @@
+input, textarea, button, select {
+    box-shadow: none !important;
+}
+
+textarea {
+    resize: none !important;
+}

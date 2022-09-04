@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <form method="POST" class="mt-3" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" id="title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="content" class="col-sm-2 col-form-label">Content</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" name="content" id="content" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="image" class="col-sm-2 col-form-label">Image</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control" name="image" id="image">
+            </div>
+        </div>
+        <!-- <fieldset class="form-group mt-4">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Visibility</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                            checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            Public
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                            Private
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset> -->
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Add Article</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

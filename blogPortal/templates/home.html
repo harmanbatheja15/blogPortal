@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% load static %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div id="alert-message">
+    <div class="alert alert-{{message.tags}} alert-dismissible text-center" role="alert">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if articles %}
+<div class="container">
+    <div class="row mb-5 mt-3">
+        {% for article in articles %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{article.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{article.title}}</h5>
+                    <small>{{article.publish_date}}</small>
+                    <p class="card-text mt-2">{{article.content|truncatechars:50}}</p>
+                    <a href="/blogs/detail/{{article.id}}/" class="btn btn-sm btn-primary">Continue Reading</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<h2>No Blogs Found</h2>
+{% endif %}
+
+{% endblock %}
